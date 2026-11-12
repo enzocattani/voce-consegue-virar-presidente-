@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vire o Presidente — Erick de Poços</title>
+<style>
+:root{--n:#0b1f3a;--g:#f2c14e;--v:#1f7a4d;--c:#fbf6e9;--r:#c0392b}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{background:#050f1f;font-family:Georgia,'Times New Roman',serif;color:var(--c);display:flex;justify-content:center}
+#app{width:100%;max-width:480px;min-height:100dvh;background:linear-gradient(#0b1f3a,#12325c);padding:max(10px,env(safe-area-inset-top)) 14px 22px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+#top{text-align:center;color:var(--g);letter-spacing:2px;font-size:15px;padding:6px;border-bottom:3px double var(--g)}
+button{font:inherit;cursor:pointer;border:0}
+.big{background:var(--g);color:var(--n);font-weight:bold;font-size:18px;padding:14px;border-radius:12px;width:100%;box-shadow:0 4px 0 #a8801c}
+.big.alt{background:var(--v);color:#fff;box-shadow:0 4px 0 #134d30}
+.big:active{transform:translateY(3px);box-shadow:none}
+.ctr{text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center;padding:10px 0}
+.ctr h1{color:var(--g);font-size:30px;line-height:1.1;text-shadow:2px 2px #000}
+.ctr .em{font-size:72px}
+.rule{background:rgba(255,255,255,.08);border-radius:12px;padding:12px;font-size:14px;line-height:1.45;text-align:left}
+#hd{display:flex;gap:10px;align-items:center;background:var(--c);color:var(--n);border-radius:14px;padding:8px 12px;border-left:8px solid var(--v);border-right:8px solid var(--g)}
+#av{font-size:38px}
+#hd>div:nth-child(2){flex:1}
+#cg{font-weight:bold;font-size:19px}
+#st{font-size:12px;text-align:right;font-weight:bold;color:var(--r)}
+#lad{display:flex;justify-content:space-between;font-size:20px}
+#lad span{opacity:.3;filter:grayscale(1);transition:.3s}
+#lad span.on{opacity:.75;filter:none}
+#lad span.cur{opacity:1;filter:none;transform:scale(1.4);text-shadow:0 0 10px var(--g)}
+.bar{height:22px;background:#0006;border-radius:11px;position:relative;overflow:hidden;border:2px solid var(--g)}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--v),var(--g));transition:width .4s}
+.bar span{position:absolute;inset:0;text-align:center;font-size:12px;line-height:18px;font-weight:bold;color:#fff;text-shadow:1px 1px #000}
+#card{background:var(--c);color:var(--n);border-radius:14px;padding:16px;box-shadow:0 5px 0 #0006;border-top:6px solid var(--g)}
+#card small{color:var(--v);font-weight:bold;text-transform:uppercase;letter-spacing:1px;font-size:11px}
+#q{font-size:19px;line-height:1.35;margin-top:6px;font-weight:bold}
+#o{display:flex;flex-direction:column;gap:9px}
+#o button{background:#fff;color:var(--n);padding:14px;border-radius:12px;font-size:16px;text-align:left;border:2px solid var(--g);box-shadow:0 3px 0 #0005}
+#o button.ok{background:#2ecc71;color:#fff;border-color:#27ae60}
+#o button.no{background:var(--r);color:#fff;border-color:#922b21}
+#sheet{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);background:var(--c);color:var(--n);padding:16px 16px max(18px,env(safe-area-inset-bottom));border-radius:22px 22px 0 0;border-top:6px solid var(--g);z-index:5;display:flex;flex-direction:column;gap:10px;animation:up .3s}
+@keyframes up{from{transform:translate(-50%,100%)}}
+#sheet .who{display:flex;gap:10px;align-items:center;font-weight:bold;color:var(--v)}
+#sheet .who span{font-size:40px}
+#sheet p{font-size:15px;line-height:1.45}
+#fx{position:fixed;inset:0;z-index:9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;overflow:hidden}
+#fx.c{background:linear-gradient(#1f7a4d,#f2c14e)}
+#fx.e{background:linear-gradient(#c0392b,#fbf6e9 140%);color:var(--n)}
+#fx.n{background:linear-gradient(#1f7a4d,#f2c14e 55%,#1d3f8f)}
+#fx h2{font-size:30px;text-shadow:2px 2px #0006;color:#fff}
+#fx.e h2{color:var(--n);text-shadow:none}
+#fx .em{font-size:90px;animation:pop 1s infinite alternate}
+@keyframes pop{to{transform:scale(1.2) rotate(8deg)}}
+#fx p{font-size:17px;max-width:320px;z-index:2}
+#fx .big,#fx h2,#fx .em{z-index:2}
+#fx>b{position:absolute;top:0;animation:f linear forwards;pointer-events:none}
+@keyframes f{from{transform:translateY(-10vh) rotate(0)}to{transform:translateY(115vh) rotate(720deg)}}
+[hidden]{display:none!important}
+</style></head><body><div id="app">
+<div id="top">★ ★ ★ VIRE O PRESIDENTE ★ ★ ★</div>
+<div id="scr"></div>
+<div id="g" hidden style="display:flex;flex-direction:column;gap:10px">
+<div id="hd"><div id="av">🙋🏻‍♂️</div><div><div id="cg"></div><small>Erick · Poços de Caldas, MG</small></div><div id="st"></div></div>
+<div id="lad"></div>
+<div class="bar"><i id="bf"></i><span id="bl"></span></div>
+<div id="card"><small id="tema"></small><p id="q"></p></div>
+<div id="o"></div>
+</div>
+<div id="sheet" hidden><div class="who"><span>👴🏽</span><div>Seu Tião<br><small id="sh"></small></div></div><p id="sp"></p><button class="big" id="sb"></button></div>
+<div id="fx" hidden></div>
+</div>
+<script>
+// [tema, pergunta, CERTA, errada, errada, errada] — ordem = dificuldade (ver TB)
+const Q=[
+[0,"Quantas horas a Terra leva para dar uma volta completa em torno do próprio eixo?","24 horas","12 horas","365 dias","6 horas"],
+[1,"O giro da Terra em torno do próprio eixo se chama:","Rotação","Translação","Revolução solar","Inclinação"],
+[1,"O movimento da Terra ao redor do Sol é a:","Translação","Rotação","Gravitação","Maré"],
+[3,"Agricultura e pecuária pertencem a qual setor da economia?","Primário","Secundário","Terciário","Quaternário"],
+[3,"Uma loja de roupas pertence ao setor:","Terciário","Primário","Secundário","Extrativista"],
+[3,"A indústria, que transforma matéria-prima em produtos, é do setor:","Secundário","Primário","Terciário","Quinário"],
+[4,"O crescimento das cidades e da população urbana é chamado de:","Urbanização","Ruralização","Migração","Extrativismo"],
+[5,"Jogar lixo em rios e córregos causa poluição:","da água","do ar","sonora","apenas visual"],
+[2,"Em qual hemisfério o Brasil vive o verão em dezembro (segundo o texto)?","Hemisfério Sul","Hemisfério Norte","Hemisfério Leste","Nenhum"],
+[0,"O meridiano de referência dos fusos horários passa por qual país?","Inglaterra","Brasil","Japão","Estados Unidos"],
+[0,"Em quantos fusos horários o mundo foi dividido?","24","12","36","60"],
+[0,"Cada fuso horário equivale a cerca de quantos graus de rotação?","15 graus","23,5 graus","24 graus","360 graus"],
+[1,"A translação dura aproximadamente:","365 dias e 6 horas","24 horas","30 dias","360 dias exatos"],
+[2,"Quantas vezes por ano ocorrem os equinócios?","Duas","Uma","Quatro","Seis"],
+[3,"Mineração e pesca fazem parte de qual setor?","Primário","Secundário","Terciário","Quaternário"],
+[3,"Qual destes é um exemplo de serviço do setor terciário?","Transporte público","Plantação de soja","Fábrica de carros","Extração de minério"],
+[4,"Um benefício da urbanização é:","Maior acesso a empregos e serviços","Menos trânsito","Mais áreas verdes","Fim da poluição"],
+[5,"O lixo acumulado em bueiros contribui para:","Enchentes","Equinócios","Fusos horários","Ilhas de frio"],
+[0,"Quando é meio-dia em Greenwich, que horas são em Brasília?","9 horas","15 horas","12 horas","21 horas"],
+[0,"Os fusos a leste de Greenwich estão, em relação a ele:","Adiantados","Atrasados","Iguais","Invertidos"],
+[0,"Por que o Brasil possui vários fusos horários?","É extenso de leste a oeste","É muito frio","Fica no Hemisfério Norte","Tem muitos rios"],
+[1,"O movimento de rotação é responsável por:","Sucessão do dia e da noite","Estações do ano","Duração do ano","Ilhas de calor"],
+[2,"A inclinação do eixo da Terra é de aproximadamente:","23,5 graus","15 graus","90 graus","45 graus"],
+[2,"Os equinócios marcam o início de quais estações?","Primavera e outono","Verão e inverno","Só o verão","Só o inverno"],
+[3,"Bancos, escolas e hospitais fazem parte do setor:","Terciário","Primário","Secundário","Extrativista"],
+[3,"A construção civil é classificada em qual setor?","Secundário","Primário","Terciário","Quinário"],
+[4,"A urbanização se intensificou principalmente com a:","Industrialização","Agricultura","Chegada do Sol","Rotação"],
+[5,"A queima de combustíveis em veículos e indústrias causa:","Poluição do ar","Poluição da água","Solstícios","Fusos horários"],
+[0,"Em Greenwich são 18h. Que horas são em um local a 3 fusos a oeste?","15h","21h","18h","3h"],
+[0,"Qual conta explica os 15 graus por fuso?","360 ÷ 24","360 × 24","24 ÷ 360","365 ÷ 24"],
+[1,"Qual movimento está ligado à existência do ano e das estações?","Translação","Rotação","Eclipse","Maré"],
+[2,"O solstício de junho no Hemisfério Sul marca o início do:","Inverno","Verão","Outono","Primavera"],
+[2,"Nos equinócios, dia e noite têm:","Duração praticamente igual","Dia sempre maior","Noite sempre maior","Sol ausente"],
+[3,"O setor quaternário está ligado a:","Tecnologia, pesquisa e informação","Extração de recursos","Indústria pesada","Pesca"],
+[3,"Qual atividade NÃO é do setor primário?","Indústria automobilística","Pecuária","Pesca","Extrativismo"],
+[4,"Um desafio comum da urbanização acelerada é:","Moradias irregulares","Sobra de empregos para todos","Ausência de carros","Queda do trânsito"],
+[5,"Asfalto e concreto causam enchentes porque:","Impermeabilizam o solo","Absorvem toda a água","Produzem chuva","Aumentam as árvores"],
+[5,"As ilhas de calor são causadas por:","Concreto em excesso e falta de árvores","Muitas áreas verdes","Poluição da água","Rotação lenta"],
+[0,"Em Greenwich são 8h. Que horas são em um país 2 fusos a leste?","10h","6h","8h","12h"],
+[0,"Por que Brasília tem hora atrasada em relação a Greenwich?","Fica a oeste de Greenwich","Fica a leste de Greenwich","Está no equador","Tem altitude elevada"],
+[0,"Quem viaja do Brasil rumo ao leste, em direção a Greenwich, deve:","Adiantar o relógio","Atrasar o relógio","Manter o relógio","Parar o relógio"],
+[1,"Qual alternativa distingue corretamente os movimentos da Terra?","Rotação ≈ 24 h; translação ≈ 365 dias e 6 h","Rotação ≈ 365 dias; translação ≈ 24 h","Ambos duram 24 h","Ambos duram 1 ano"],
+[1,"Qual movimento explica a diferença de horário entre os lugares?","Rotação","Translação","Inclinação do eixo","Equinócio"],
+[2,"Segundo o texto, as estações surgem da combinação de:","Inclinação do eixo + translação","Rotação + fusos","Urbanização + solstício","Equinócio + lixo"],
+[2,"Em dezembro, no Hemisfério Sul, o solstício inicia o:","Verão","Inverno","Outono","Primavera"],
+[2,"No solstício, o Sol está no ponto:","Mais afastado do equador","Exatamente no equador","Escondido","Parado sobre a Terra"],
+[2,"Qual par de datas corresponde aos equinócios?","21 de março e 23 de setembro","21 de junho e 22 de dezembro","1º de janeiro e 1º de julho","15 de abril e 15 de outubro"],
+[2,"No solstício, se um hemisfério tem o dia mais longo, o outro:","Tem o dia mais curto","Também tem o mais longo","Fica sem dia","Tem dia igual à noite"],
+[3,"Agricultor vende safra a uma fábrica de óleo, que vende ao mercado. Quais setores, em ordem?","Primário, secundário, terciário","Terciário, primário, secundário","Secundário, primário, terciário","Primário, terciário, secundário"],
+[3,"Decisões e gestão de alto nível são associadas ao setor:","Quinário","Primário","Secundário","Terciário"],
+[3,"Turismo e educação pertencem ao setor:","Terciário","Secundário","Primário","Quinário"],
+[3,"Para o 6º ano, o foco costuma ser em quantos setores?","Três","Dois","Cinco","Sete"],
+[4,"A população urbana brasileira passou a ser maioria:","Nas últimas décadas do século XX","No século XV","Antes da indústria","Só no século XXI"],
+[4,"Por que a industrialização atraiu pessoas do campo?","Concentrou empregos nas cidades","Pagava para morar no campo","Extinguiu as cidades","Acabou com a indústria"],
+[4,"Qual NÃO é um desafio da urbanização citado no texto?","Excesso de áreas verdes","Falta de saneamento","Aumento do trânsito","Moradias irregulares"],
+[5,"Ocupar encostas e margens de rios gera risco de:","Deslizamentos","Equinócios","Fusos horários","Rotação"],
+[5,"Qual solução ajuda a combater problemas ambientais urbanos?","Coleta seletiva e planejamento urbano","Impermeabilizar mais o solo","Queimar lixo","Derrubar áreas verdes"],
+[5,"Qual ação reduz alagamentos?","Preservar áreas verdes que absorvem água","Asfaltar todas as ruas","Jogar lixo na rua","Fechar bueiros"],
+[5,"Cidades mais quentes que as áreas vizinhas: esse fenômeno é chamado de:","Ilhas de calor","Efeito estufa polar","Solstício","Equinócio"],
+[0,"Duas cidades diferem em 4 fusos. Quantas horas de diferença?","4 horas","15 horas","60 horas","24 horas"],
+[1,"Qual a duração aproximada da translação?","365 dias e 6 horas","24 horas","30 dias","180 dias"],
+[3,"Qual grupo tem uma atividade de cada setor (primário, secundário, terciário)?","Pesca, fábrica de móveis, banco","Banco, loja, escola","Mineração, pesca, pecuária","Indústria, construção civil, fábrica"]
+];
+const TB=[10,18,28,38,62],tierOf=i=>TB.findIndex(b=>i<b);
+const TN=["Fuso horário","Movimentos da Terra","Equinócio e solstício","Setores da economia","Urbanização","Problemas ambientais urbanos"];
+const TIP=[
+"A Terra gira 360° em 24 h → 15° por hora, e o mundo tem 24 fusos. A referência é Greenwich (GMT): a LESTE o horário é adiantado, a OESTE é atrasado. Brasília fica 3 h atrás de Greenwich (meio-dia lá = 9 h aqui).",
+"ROTAÇÃO: giro no próprio eixo, ~24 h; dá o dia e a noite e a diferença de horário. TRANSLAÇÃO: volta ao redor do Sol, ~365 dias e 6 h; define o ano e as estações.",
+"O eixo é inclinado ~23,5°. EQUINÓCIOS (21/3 e 23/9): dia e noite iguais, início de primavera/outono. SOLSTÍCIOS (21/6 e 22/12): Sol mais afastado do equador; em junho é inverno no Sul, em dezembro é verão.",
+"PRIMÁRIO: tira da natureza (agro, pecuária, pesca, mineração). SECUNDÁRIO: transforma (indústria, construção). TERCIÁRIO: comércio e serviços. Quaternário: tecnologia e pesquisa; quinário: decisões de alto nível.",
+"Urbanização é o crescimento das cidades, impulsionado pela industrialização (empregos). Benefícios: empregos, saúde, educação. Desafios: moradia irregular, falta de saneamento e mais trânsito.",
+"Problemas: poluição do ar e da água, lixo, enchentes (solo impermeável + bueiros entupidos), ilhas de calor e áreas de risco. Soluções: planejamento urbano, coleta seletiva, saneamento e áreas verdes."];
+// nome, emoji, acertos p/ subir, tier, esfera
+const CG=[["Cidadão","🧍",4,0,"c"],["Vereador","🏛️",6,0,"c"],["Prefeito","🏙️",8,1,"c"],["Deputado Estadual","📜",10,2,"e"],["Governador","🏰",10,3,"e"],["Deputado Federal","⚖️",5,4,"n"],["Senador","🎖️",14,4,"n"],["Presidente","🇧🇷",99,4,"n"]];
+const TT=["","Vereador de Poços de Caldas","Prefeito de Poços de Caldas","Deputado Estadual por Minas Gerais","Governador de Minas Gerais","Deputado Federal da República","Senador da República","Presidente do Brasil"];
+const SP={c:["🎆","Poços de Caldas está em festa! A cidade das águas aplaude o Erick!",["🎉","💦","⭐","🎊"]],e:["🧀","Minas Gerais comemora, uai! Pão de queijo pra todo mundo, sô!",["🧀","☕","⭐","🎉"]],n:["🇧🇷","O Brasil inteiro comemora a ascensão do Erick!",["🇧🇷","⭐","🎊","🎆"]]};
+const $=id=>document.getElementById(id);
+let S,cur,opts,lock,K="vp_erick";
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const load=()=>{try{return JSON.parse(localStorage.getItem(K))}catch(e){return null}};
+const fresh=()=>({c:0,p:0,wt:0,ws:0,last:-1,miss:[0,0,0,0,0,0],pool:Q.map((_,i)=>i)});
+
+function home(){
+ $("g").hidden=true;const sv=load();
+ $("scr").innerHTML=`<div class="ctr"><div class="em">🙋🏻‍♂️🏛️</div><h1>Você consegue virar o Presidente?</h1>
+ <div class="rule">Erick é um cidadão de <b>Poços de Caldas (MG)</b> com um sonho: chegar ao topo da política! Responda as questões de Geografia, suba de cargo e conte com o <b>Seu Tião</b>, seu chefe de campanha.<br><br>
+ ⚠️ <b>5 erros</b> no cargo: aviso. <b>10 erros</b>: desce de cargo.<br>⚠️ <b>5 erros seguidos</b>: desce na hora. <b>10 seguidos</b>: volta a cidadão.<br>🎖️ Como Senador, 14 difíceis <b>sem errar</b> levam à Presidência.<br>👑 Acabaram as questões? Erick vira o <b>Rei do Brasil</b>!</div>
+ ${sv&&sv.pool.length?'<button class="big alt" onclick="go(1)">▶ Continuar campanha</button>':''}
+ <button class="big" onclick="go(0)">🗳️ Nova campanha</button></div>`}
+function go(k){S=k?load():fresh();save();$("scr").innerHTML="";$("g").hidden=false;next()}
+
+function pick(){
+ const t=CG[S.c][3];let a=S.pool.filter(i=>i!=S.last);if(!a.length)a=S.pool;
+ const m=Math.min(...a.map(i=>Math.abs(tierOf(i)-t)));a=a.filter(i=>Math.abs(tierOf(i)-t)==m);
+ return a[Math.random()*a.length|0]}
+function next(){
+ if(!S.pool.length)return end();
+ cur=pick();const q=Q[cur];
+ opts=q.slice(2).map((t,i)=>({t,ok:!i})).sort(()=>Math.random()-.5);
+ $("tema").textContent="📌 "+TN[q[0]];$("q").textContent=q[1];$("o").innerHTML="";
+ opts.forEach((o,i)=>{const b=document.createElement("button");b.textContent=o.t;b.onclick=()=>ans(i);$("o").append(b)});
+ hud();lock=0}
+function hud(){
+ const c=CG[S.c];$("cg").textContent=c[1]+" "+c[0];
+ $("st").innerHTML=`❌ ${S.wt}/10<br>seguidos ${S.ws}/5`;
+ $("lad").innerHTML=CG.map((x,i)=>`<span class="${i<S.c?'on':''} ${i==S.c?'cur':''}">${x[1]}</span>`).join("");
+ const need=c[2];$("bf").style.width=(S.c==7?100:S.p/need*100)+"%";
+ $("bl").textContent=S.c==7?`Presidente! Faltam ${S.pool.length} questões`:(S.c==6?"Sequência sem errar: ":"Votos: ")+S.p+"/"+need}
+
+function ans(i){
+ if(lock)return;lock=1;const B=$("o").children;
+ B[i].classList.add(opts[i].ok?"ok":"no");opts.forEach((o,j)=>{if(o.ok)B[j].classList.add("ok")});
+ if(navigator.vibrate)navigator.vibrate(opts[i].ok?30:[60,40,60]);
+ opts[i].ok?right():wrong();}
+function right(){
+ S.pool=S.pool.filter(x=>x!=cur);S.last=cur;S.ws=0;S.p++;
+ let up=S.c<7&&S.p>=CG[S.c][2];
+ if(up){S.c++;S.p=0;S.wt=0}
+ save();hud();
+ setTimeout(()=>up?party():next(),up?500:750)}
+function wrong(){
+ const t=Q[cur][0];S.last=cur;S.ws++;S.wt++;S.miss[t]++;if(S.c==6)S.p=0;
+ const m=[];
+ if(S.ws==10){S.c=0;S.p=0;S.wt=0;S.ws=0;m.push("😱 10 erros seguidos! Erick voltou a ser Cidadão.")}
+ else if(S.ws==5&&S.c>0){S.c--;S.p=0;S.wt=0;m.push("📉 5 erros seguidos! Erick caiu para "+CG[S.c][0]+".")}
+ else if(S.wt==10&&S.c>0){S.c--;S.p=0;S.wt=0;m.push("📉 10 erros no cargo! Erick foi rebaixado para "+CG[S.c][0]+".")}
+ else if(S.wt==5&&S.c>0)m.push("⚠️ Atenção, Erick! Já são 5 erros neste cargo. Mais 5 e você desce de cargo!");
+ if(S.miss[t]>=2)m.unshift("Esse tema está te pegando, hein?");
+ save();hud();
+ const ok=opts.find(o=>o.ok).t;
+ setTimeout(()=>chief("Explicando: "+TN[t],`<b>Certa: ${ok}</b><br><br>${TIP[t]}${m.length?'<br><br>'+m.join('<br>'):''}`,"Entendi, bora! 💪",next),900)}
+function chief(h,html,btn,cb){
+ $("sh").textContent=h;$("sp").innerHTML=html;$("sb").textContent=btn;$("sheet").hidden=0;
+ $("sb").onclick=()=>{$("sheet").hidden=1;cb()}}
+
+function confete(list,n){for(let i=0;i<n;i++){const b=document.createElement("b");b.textContent=list[i%list.length];
+ b.style.cssText=`left:${Math.random()*100}%;font-size:${18+Math.random()*26}px;animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*2}s`;$("fx").append(b)}}
+function party(){
+ const c=CG[S.c],s=SP[c[4]];const fx=$("fx");fx.className=c[4];fx.hidden=0;
+ fx.innerHTML=`<div class="em">${s[0]}</div><h2>Erick é ${S.c==7?"o":"agora"} ${TT[S.c]}!</h2><p>${s[1]}</p><p>👴🏽 “Eu sabia, sô! Agora é só não dar mole.”</p><button class="big" id="fb">Seguir a campanha →</button>`;
+ confete(s[2],40);if(navigator.vibrate)navigator.vibrate([100,50,100,50,200]);
+ $("fb").onclick=()=>{fx.hidden=1;next()}}
+function end(){
+ $("g").hidden=true;const fx=$("fx");fx.className="n";fx.hidden=0;
+ const w=S.miss.indexOf(Math.max(...S.miss));
+ fx.innerHTML=`<div class="em">👑</div><h2>ERICK I, REI DO BRASIL!</h2><p>Todas as questões respondidas! De cidadão de Poços de Caldas a Rei do Brasil. 🇧🇷</p><p>👴🏽 “Rei, presidente, tanto faz: o povo te ama, sô!”<br><small>Tema com mais tropeços: ${S.miss[w]?TN[w]:"nenhum, impecável!"}</small></p><button class="big" id="fb">🔁 Jogar de novo</button>`;
+ confete(["👑","🇧🇷","⭐","🎆","🎊"],60);
+ try{localStorage.removeItem(K)}catch(e){}
+ $("fb").onclick=()=>{fx.hidden=1;home()}}
+home();
+</script></body></html>
